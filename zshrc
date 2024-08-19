@@ -30,13 +30,19 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Eza - better ls
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias la="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all"
-alias tree="eza --color=always --tree --level=2 --git --icons=always --all"
-
+alias tr1="eza --color=always --tree --level=2 --git-ignore --git --icons=always --all"
+alias tr2="eza --color=always --tree --level=3 --git-ignore --git --icons=always --all"
 
 alias cl="clear"
 alias ..="cd .."
 alias ...="cd ../.."
 
+source <(fzf --zsh)
+
 mkcd () {
   mkdir -p "$@" && cd "$_"
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
